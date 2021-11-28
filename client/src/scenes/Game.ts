@@ -66,7 +66,7 @@ export default class Game extends Phaser.Scene {
     // debugDraw(groundLayer, this)
 
     this.myPlayer = this.add.myPlayer(705, 500, 'adam', this.network.mySessionId)
-    this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
+    this.playerSelector = new PlayerSelector(this, -10, 0, 16, 16)
 
     // import item objects (currently chairs) from Tiled map to Phaser
     this.items = this.physics.add.staticGroup({ classType: Item })
@@ -81,9 +81,10 @@ export default class Game extends Phaser.Scene {
     var counter = 0
     computerLayer.objects.forEach((Obj) => {
       const item = this.addObjectFromTiled(this.items, Obj, 'computers', 'computer') as Item
-      item.setDepth(item.y + item.height * 0.27)
+      item.setDepth(item.y + item.height * 0.6)
       const id = String(counter)
       item.id = id
+      item.scale = 0.7;
       this.computerMap.set(id, item)
       ++counter
     })
