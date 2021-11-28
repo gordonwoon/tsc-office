@@ -89,7 +89,7 @@ export default class MyPlayer extends Player {
           })
           // set up new dialog as player sits down
           item.clearDialogBox()
-          item.setDialogBox('Press E to leave', 95)
+          item.setDialogBox('Press E to leave')
           this.itemOnSit = item
           this.playerBehavior = PlayerBehavior.SITTING
           return

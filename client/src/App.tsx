@@ -6,6 +6,7 @@ import LoginDialog from './components/LoginDialog'
 import ComputerDialog from './components/ComputerDialog'
 import VideoConnectionDialog from './components/VideoConnectionDialog'
 import WhiteboardDialog from './components/WhiteboardDialog'
+import Chat from './components/Chat'
 // import Debug from './components/Debug'
 
 function App() {
@@ -18,8 +19,8 @@ function App() {
     <div className="App">
       {/* <Debug /> */}
 
-      {/* Render the LoginDialog if not logged in yet. */}
-      {!loggedIn && <LoginDialog />}
+      {/* Render the LoginDialog if not logged in, else render Chat. */}
+      {loggedIn ? <Chat /> : <LoginDialog />}
 
       {/* Render the ComputerDialog if user is using a computer. */}
       {computerDialogOpen && <ComputerDialog />}
