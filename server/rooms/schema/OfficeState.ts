@@ -28,5 +28,5 @@ export class OfficeState extends Schema implements IOfficeState {
   computers = new MapSchema<Computer>()
 
   @type([ChatMessage])
-  chatMessages = new ArraySchema<ChatMessage>()
+  chatMessages = new ArraySchema<IChatMessage>()
 }
