@@ -15,14 +15,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-process.env.PWD = process.cwd()
-const buildPath = path.join(process.env.PWD, "/../client/build")
-app.use(express.static(buildPath))
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(process.env.PWD+'/../client/build/index.html'));
-});
+app.use(express.static(path.join(__dirname, '/../client/build'), { maxAge: 86400000 }))
 
 const server = http.createServer(app)
 const gameServer = new Server({
