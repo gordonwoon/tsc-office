@@ -46,5 +46,8 @@
     "phaser": "^3.55.2",
     "regenerator-runtime": "^0.13.7",
     "tslib": "^2.3.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
   }
 }
