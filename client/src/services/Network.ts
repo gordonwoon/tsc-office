@@ -72,7 +72,6 @@ export default class Network {
     }
 
     // new message added to the chat store
-    console.log('room', this.room.state)
     this.room.state.chatMessages.onAdd = (message: IChatMessage, key: number) => {
       store.dispatch(addMessage(message))
     }
