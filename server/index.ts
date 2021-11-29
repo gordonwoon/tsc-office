@@ -13,7 +13,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-// app.use(express.static('dist'))
+app.use(express.static('../client/build'))
 
 const server = http.createServer(app)
 const gameServer = new Server({

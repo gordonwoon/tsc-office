@@ -1,6 +1,6 @@
 import { Room, Client } from 'colyseus'
 import { Dispatcher } from '@colyseus/command'
-import { Player, OfficeState, Computer } from './schema/OfficeState'
+import { Player, OfficeState, Computer, ChatMessage } from './schema/OfficeState'
 import { Message } from '../../types/Messages'
 import PlayerUpdateCommand from './commands/PlayerUpdateCommand'
 import PlayerUpdateNameCommand from './commands/PlayerUpdateNameCommand'

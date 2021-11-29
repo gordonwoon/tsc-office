@@ -19,7 +19,7 @@ export default class Network {
     const protocol = window.location.protocol.replace('http', 'ws')
     const endpoint =
       process.env.NODE_ENV === 'production'
-        ? `wss://sky-office.herokuapp.com`
+        ? `wss://tsc-office.herokuapp.com`
         : `${protocol}//${window.location.hostname}:2567`
     this.client = new Client(endpoint)
 
@@ -72,6 +72,7 @@ export default class Network {
     }
 
     // new message added to the chat store
+    console.log('room', this.room.state)
     this.room.state.chatMessages.onAdd = (message: IChatMessage, key: number) => {
       store.dispatch(addMessage(message))
     }
