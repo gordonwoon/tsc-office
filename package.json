@@ -1,6 +1,9 @@
 {
   "name": "skyoffice",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "Server for SkyOffice",
   "main": ".eslintrc.js",
   "scripts": {
