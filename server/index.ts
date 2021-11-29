@@ -13,7 +13,7 @@ const port = Number(process.env.PORT || 2567)
 const app = express()
 
 // app.use(express.static(path.join(__dirname, '/../client/build'), { maxAge: 86400000 }))
-app.use(express.static('public'))
+app.use(express.static('client/build'))
 
 app.use(cors())
 app.use(express.json())
