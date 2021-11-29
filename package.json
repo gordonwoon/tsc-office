@@ -2,10 +2,10 @@
   "name": "skyoffice",
   "version": "1.0.0",
   "engines": {
-    "node": "16.5"
+    "node": "14.x"
   },
   "description": "Server for SkyOffice",
-  "main": ".eslintrc.js",
+  "main": "index.ts",
   "scripts": {
     "start": "cd server && ts-node-dev --project tsconfig.server.json --respawn --transpile-only index.ts",
     "heroku-postbuild": "npm i && cd types && npm i && cd ../server && tsc --project tsconfig.server.json",
