@@ -114,7 +114,7 @@ export default function LoginDialog() {
 
   return (
     <Wrapper>
-      <Title>Welcome to SkyOffice</Title>
+      <Title>Welcome to TSC</Title>
       <Content>
         <Left>
           <SubTitle>Select an avatar</SubTitle>
