@@ -17,6 +17,7 @@ export class Computer extends Schema implements IComputer {
 export class ChatMessage extends Schema implements IComputer {
   @type('number') createdAt = new Date().getTime()
   @type('string') content: ''
+  @type('string') name: ''
 }
 
 export class OfficeState extends Schema implements IOfficeState {

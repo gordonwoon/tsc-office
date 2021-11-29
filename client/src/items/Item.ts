@@ -37,7 +37,7 @@ export default class Item extends Phaser.Physics.Arcade.Sprite {
   }
 
   // add texts into dialog box container
-  setDialogBox(text: string) {
+  setDialogBox(text: string, duration?: number) {
     const innerText = this.scene.add
       .text(0, 0, text)
       .setFontFamily('Arial')

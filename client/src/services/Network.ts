@@ -1,3 +1,4 @@
+import { IChatMessage } from './../../../types/IOfficeState'
 import { Client, Room } from 'colyseus.js'
 import { IComputer, IOfficeState, IPlayer } from '../../../types/IOfficeState'
 import { Message } from '../../../types/Messages'
@@ -5,6 +6,7 @@ import WebRTC from '../web/WebRTC'
 import { phaserEvents, Event } from '../events/EventCenter'
 import store from '../stores'
 import { setSessionId, setPlayerNameMap, removePlayerNameMap } from '../stores/UserStore'
+import { addMessage } from '../stores/ChatStore'
 
 export default class Network {
   private client: Client
@@ -68,6 +70,12 @@ export default class Network {
         phaserEvents.emit(Event.ITEM_USER_REMOVED, item, key)
       }
     }
+
+    // new message added to the chat store
+    this.room.state.chatMessages.onAdd = (message: IChatMessage, key: number) => {
+      store.dispatch(addMessage(message))
+    }
+
 
     // when a peer disconnect with myPeer
     this.room.onMessage(Message.DISCONNECT_STREAM, (clientId: string) => {
@@ -157,5 +165,13 @@ export default class Network {
 
   onStopScreenShare(id: string) {
     this.room?.send(Message.STOP_SCREEN_SHARE, { computerId: id })
+  }
+
+  onChatMessage(message: string) {
+    this.room?.send(Message.ADD_CHAT_MESSAGE, { content: message })
+  }
+
+  getRoom() {
+    return this.room
   }
 }

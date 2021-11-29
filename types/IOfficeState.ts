@@ -16,6 +16,7 @@ export interface IComputer extends Schema {
 export interface IChatMessage extends Schema {
   createdAt: number
   content: string
+  name: string
 }
 
 export interface IOfficeState extends Schema {
