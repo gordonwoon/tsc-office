@@ -15,12 +15,13 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const buildPath = path.join(__dirname, "/../client/build")
+process.env.PWD = process.cwd()
+const buildPath = path.join(process.env.PWD, "/../client/build")
 app.use(express.static(buildPath))
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/../client/build/index.html'));
+  res.sendFile(path.join(process.env.PWD+'/../client/build/index.html'));
 });
 
 const server = http.createServer(app)
