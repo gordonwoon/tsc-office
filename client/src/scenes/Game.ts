@@ -63,11 +63,12 @@ export default class Game extends Phaser.Scene {
     const groundLayer = this.map.createLayer('Ground', FloorAndGround)
     groundLayer.setCollisionByProperty({ collides: true })
 
+    this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
+    // debugDraw(groundLayer, this)
+
     this.addGroupFromTiled('GenericObjectsOnCollide', 'generic', 'Generic', true)
     this.addGroupFromTiled('GenericObjects', 'generic', 'Generic', false)
 
-    this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
-    // debugDraw(groundLayer, this)
 
     this.myPlayer = this.add.myPlayer(900, 930, 'adam', this.network.mySessionId)
     this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
