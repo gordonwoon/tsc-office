@@ -19,7 +19,7 @@ export default class Network {
     const protocol = window.location.protocol.replace('http', 'ws')
     const endpoint =
       process.env.NODE_ENV === 'production'
-        ? `wss://tsc-office.herokuapp.com`
+        ? `wss://tsc-verse.herokuapp.com`
         : `${protocol}//${window.location.hostname}:2567`
     this.client = new Client(endpoint)
 
