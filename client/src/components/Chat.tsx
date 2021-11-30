@@ -106,7 +106,8 @@ export default function Chat() {
   }
 
   const game = phaserGame.scene.keys.game as Game
-  const _handleEnterKey = event => {
+  const handleInput = event => {
+    event.stopPropagation()
     if(event.keyCode === 13) { //Enter key
       game.network.onChatMessage(messageRef.current)
       messageRef.current = ''
@@ -122,15 +123,6 @@ export default function Chat() {
     const maxScrollTop = scrollHeight - height;
     chatRef.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
   }, [messages])
-
-  React.useEffect(() => {
-    document.addEventListener("keydown", _handleEnterKey, false);
-
-    return (() => {
-      document.removeEventListener("keydown", _handleEnterKey, false);
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
   return (
     <>
       <Backdrop>
@@ -209,7 +201,7 @@ export default function Chat() {
                 )}
               </ChatBox>
               <InputWrapper>
-                <InputTextField autoFocus fullWidth placeholder="Aa" value={value} onChange={onChat}/>
+                <InputTextField autoFocus fullWidth placeholder="Aa" value={value} onChange={onChat} onKeyDown={handleInput} />
                 {/* <IconButton aria-label="emoji">
                   <InsertEmoticonIcon
                     onClick={() => {
