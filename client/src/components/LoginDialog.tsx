@@ -114,7 +114,7 @@ export default function LoginDialog() {
 
   return (
     <Wrapper>
-      <Title>Welcome to TSC</Title>
+      <Title>Welcome to TSC Verse</Title>
       <Content>
         <Left>
           <SubTitle>Select an avatar</SubTitle>
